@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace University.Web.Models
+namespace University.BL.DTOs
 {
-    public class Student
+    public class StudentDTO
     {
         [Display(Name = "ID")]
         [Required(ErrorMessage = "El campo ID es requerido.")]
@@ -24,5 +23,13 @@ namespace University.Web.Models
         [Required(ErrorMessage = "El campo Enrollment Date es requerido.")]
         [DataType(DataType.DateTime)]
         public DateTime EnrollmentDate { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                return string.Format("{0} {1}", LastName, FirstMidName);
+            }
+        }
     }
 }
